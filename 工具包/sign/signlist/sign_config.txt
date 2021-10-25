@@ -1,0 +1,28 @@
+
+
+{
+  "tip": "storeFile 为你的签名本地路径 如果有疑问请联系技术人员",
+  "msg": "懒得界面化了,自己编辑吧,这样也舒服",
+  "sign": [
+    {
+      "keyAlias": "xxx",
+      "v2Enabled":false,
+      "keyPassword": "xxxx",
+      "storePassword": "xxxx",
+      "storeFile": "xx/xxx/xx/xxx.keystore"
+    }
+    
+   
+   
+  ],
+  "sign2": [
+    {
+          "keyAlias": "xxx",
+          "v2Enabled":false,
+          "keyPassword": "xxxx",
+          "storePassword": "xxxx",
+          "storeFile": "xx/xxx/xx/xxx.keystore"
+    }
+   
+  ]
+}
