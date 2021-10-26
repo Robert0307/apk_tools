@@ -144,7 +144,6 @@ class ApkChangeLogic extends GetxController {
     });
     //比较icon大小
     state.icon = state.exitIcon[state.exitIcon.length - 1];
-
     update();
   }
 
@@ -158,9 +157,7 @@ class ApkChangeLogic extends GetxController {
       await File(icon).copy(element);
     });
     state.icon = state.exitIcon[state.exitIcon.length - 1];
-
     log(state.icon);
-
     update();
   }
 
