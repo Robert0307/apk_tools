@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:DogApkTools/home/item/base_item.dart';
 import 'package:DogApkTools/home/tools/apk/change/apkchange/apk_change_next_view.dart';
-import 'package:DogApkTools/home/tools/apk/change/apkchange/apkchange_state.dart';
+import 'package:DogApkTools/home/tools/apk/change/apkchange/apk_change_state.dart';
 import 'package:DogApkTools/widget/app_tools_back.dart';
 import 'package:DogApkTools/widget/tool_edit_input.dart';
 import 'package:DogApkTools/widget/tools_button.dart';
@@ -10,7 +10,7 @@ import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'apkchange_logic.dart';
+import 'apk_change_logic.dart';
 
 class ApkChangePage extends StatelessWidget {
   ApkChangeState _pageState = Get.put(ApkChangeLogic()).state;

@@ -37,39 +37,6 @@ class ApkToolRun {
     });
   }
 
-  /// /Users/climber/Develop/android/sdk/build-tools/30.0.2/aapt2 link -I /Users/climber/Flutter/工具目录/tools/apk/android.jar  --allow-reserved-package-id  --package-id 0x90 --java build --emit-ids ids.txt -o res.apk --manifest AndroidManifest.xml res.zip
-
-  static Future<void> aapt2Link({required String workPath, required String rPtah, required StatusCallback status}) {
-    return run(
-        '${aapt2()} link -I $androidJar --java $workPath/$rPtah '
-        '--allow-reserved-package-id '
-        '--package-id 0x90 '
-        '--java build '
-        '--emit-ids $workPath/ids.txt '
-        '-o $workPath/res.apk '
-        '--manifest $workPath/AndroidManifest.xml '
-        '$workPath/res.zip',
-        verbose: false,
-        commandVerbose: false,
-        environment: getEnvironment(), onProcess: (result) {
-      result.exitCode.then((value) {
-        if (value == 0) {
-          status.onSuccess();
-        } else {
-          status.onError(value);
-        }
-      });
-    }).then((value) {
-      if (value.errText.isNotEmpty) {
-        status.onError(1);
-
-        status.onResult(1, value.errText);
-      } else {
-        status.onResult(0, value.outText);
-      }
-    });
-  }
-
   static Future<void> decompiling(
       {required String fromApk, required String outputApk, required StatusCallback status}) {
     return run(
@@ -87,85 +54,12 @@ class ApkToolRun {
         }
       });
     }).then((value) {
-      log(value.errText);
-      log(value.outText);
-
       if (value.errText.isNotEmpty) {
         status.onError(1);
         status.onResult(1, value.errText);
         log(value.errText);
       } else {
         status.onResult(0, value.outText);
-      }
-    }).catchError((error) {
-      log(error.toString());
-    });
-  }
-
-  static Future<void> aarWorking({required String config, required StatusCallback status}) {
-    return run(
-        'java -jar ${aarTools()} '
-        '-lj $config',
-        verbose: false,
-        commandVerbose: false,
-        environment: getEnvironment(), onProcess: (result) {
-      result.exitCode.then((value) {
-        if (value == 0) {
-        } else {
-          status.onError(value);
-        }
-      });
-    }).then((value) {
-      if (value.errText.isNotEmpty) {
-        status.onError(1);
-        status.onResult(1, value.errText);
-        log(value.errText);
-      } else {
-        if (value.outText.contains("合并aar成功")) {
-          status.onSuccess();
-        }
-        if (value.outText.contains("失败")) {
-          List<String> tip = value.outText.split('[INFO ]');
-          String errorData = tip[tip.length - 1];
-          status.onResult(1, errorData.substring(errorData.indexOf('[ TASK_ID')));
-
-          status.onError(1);
-        }
-      }
-    }).catchError((error) {
-      log(error.toString());
-    });
-  }
-
-  static Future<void> aarWorkingDeal({required String config, required StatusCallback status}) {
-    return run(
-        'java -jar ${aarTools()} '
-        '-lj $config',
-        verbose: false,
-        commandVerbose: false,
-        environment: getEnvironment(), onProcess: (result) {
-      result.exitCode.then((value) {
-        if (value == 0) {
-        } else {
-          status.onError(value);
-        }
-      });
-    }).then((value) {
-      if (value.errText.isNotEmpty) {
-        status.onError(1);
-        status.onResult(1, value.errText);
-        log(value.errText);
-      } else {
-        if (value.outText.contains("合并aar成功")) {
-          status.onSuccess();
-        }
-        if (value.outText.contains("失败") || value.outText.contains("Exception")) {
-          List<String> tip = value.outText.split('[INFO ]');
-          String errorData = tip[tip.length - 1];
-          status.onResult(1, errorData.substring(errorData.indexOf('[ TASK_ID')));
-
-          status.onError(1);
-        }
       }
     }).catchError((error) {
       log(error.toString());

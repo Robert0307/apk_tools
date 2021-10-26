@@ -49,7 +49,7 @@ class _ApkInfoState extends State<ApkInfo> {
             onDragDone: (value) {
               setState(() {
                 dApk = value;
-                checkInfo(value, context);
+                apkAnalyzers(value, context);
               });
             },
             onTap: () async {
@@ -57,7 +57,7 @@ class _ApkInfoState extends State<ApkInfo> {
               final file = await openFile(acceptedTypeGroups: [typeGroup]);
               dApk = file!.path;
               setState(() {
-                checkInfo(dApk, context);
+                apkAnalyzers(dApk, context);
               });
             },
           ),
@@ -114,8 +114,8 @@ class _ApkInfoState extends State<ApkInfo> {
     );
   }
 
-  void checkInfo(String path, BuildContext context) {
-    ToolsRun.apkanalyzers(
+  void apkAnalyzers(String path, BuildContext context) {
+    ToolsRun.apkAnalyzers(
         fromApk: path,
         status: StatusCallback(
             onSuccess: () {},

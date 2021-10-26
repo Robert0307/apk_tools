@@ -14,16 +14,13 @@ class StringUtils {
     return str3.replaceAll(start, '');
   }
 
+  ///查询APP名字
   static inquireAppName(String fileName, String name) {
     String appName = '';
     File file = File('$fileName/res/values/strings.xml');
-
     final document = XmlDocument.parse(file.readAsStringSync());
     XmlDocument data = document.document!;
-
     XmlElement resources = data.getElement('resources')!;
-
-    //获取所有权限
     resources.findAllElements('string').forEach((element) {
       if (element.getAttribute('name') == name) {
         appName = element.firstChild!.text;
@@ -33,47 +30,20 @@ class StringUtils {
     return appName;
   }
 
+  //修改APP 名字
   static changeAppName(String fileName, String content, String name) {
     String appName = '';
     File file = File('$fileName/res/values/strings.xml');
-
     final document = XmlDocument.parse(file.readAsStringSync());
     XmlDocument data = document.document!;
-
     XmlElement resources = data.getElement('resources')!;
-
     //获取所有权限
     resources.findAllElements('string').forEach((element) {
       if (element.getAttribute('name') == name) {
         appName = element.firstChild!.text;
       }
     });
-
-    print('appName $appName');
-    print('appName $content');
     file.readAsStringSync().replaceAll(appName, content);
-    file.writeAsStringSync(
-        file.readAsStringSync().replaceAll(appName, content));
-  }
-
-  static change2(String fileName, String content, String name) {
-    String appName = '';
-    File file = File('$fileName/res/values/strings.xml');
-
-    final document = XmlDocument.parse(file.readAsStringSync());
-    XmlDocument data = document.document!;
-
-    XmlElement resources = data.getElement('resources')!;
-
-    //获取所有权限
-    resources.findAllElements('string').forEach((element) {
-      if (element.getAttribute('name') == name) {
-        appName = element.firstChild!.text;
-      }
-    });
-
-    file.readAsStringSync().replaceAll(appName, content);
-    file.writeAsStringSync(
-        file.readAsStringSync().replaceAll(appName, content));
+    file.writeAsStringSync(file.readAsStringSync().replaceAll(appName, content));
   }
 }

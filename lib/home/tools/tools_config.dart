@@ -13,22 +13,13 @@ String aapt() => '${FileUtils.getToolsPath()}/aapt/${Platform.isMacOS ? 'mac/aap
 
 String aapt2() => '${FileUtils.getToolsPath()}/aapt/${Platform.isMacOS ? 'mac/aapt2' : 'win/aapt2.exe'}';
 
-String androidJar() => '${FileUtils.getToolsPath()}/apk/android.jar';
-
 String apksigner() => '${FileUtils.getToolsPath()}/sign/apksigner.jar';
 
 String zipaligns() => '${FileUtils.getToolsPath()}/zipalign/${Platform.isMacOS ? 'mac/zipalign' : 'win/zipalign.exe'}';
 
-String signPass() => 'yezixi_20180918';
-
-String signAlias() => 'yjqk';
-
 String apkanalyzer() => '${FileUtils.getToolsPath()}/apk/APKParser.jar';
 
 String apktool() => '${FileUtils.getToolsPath()}/apk/apktool_2.5.0.jar';
-String aarTools() => '${FileUtils.getToolsPath()}/aar/apkAutoTool.jar';
-String aarToolsV4V7() => '${FileUtils.getToolsPath()}/aar/common-release.aar';
-String log4j() => '${FileUtils.getToolsPath()}/aar/log4j.properties';
 
 String signConfigPath() => '${FileUtils.getToolsPath()}/sign/signlist/sign_config.txt';
 

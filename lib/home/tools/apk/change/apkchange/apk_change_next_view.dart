@@ -1,8 +1,8 @@
 import 'package:DogApkTools/home/common/status_callback.dart';
 import 'package:DogApkTools/home/common/tools_dialog.dart';
 import 'package:DogApkTools/home/item/base_item.dart';
-import 'package:DogApkTools/home/tools/apk/change/apkchange/apkchange_logic.dart';
-import 'package:DogApkTools/home/tools/apk/change/apkchange/apkchange_state.dart';
+import 'package:DogApkTools/home/tools/apk/change/apkchange/apk_change_logic.dart';
+import 'package:DogApkTools/home/tools/apk/change/apkchange/apk_change_state.dart';
 import 'package:DogApkTools/utils/file_utils.dart';
 import 'package:DogApkTools/widget/app_tools_back.dart';
 import 'package:DogApkTools/widget/tool_edit_input.dart';

@@ -5,7 +5,7 @@ import 'package:DogApkTools/home/tools/apk/apk_b.dart';
 import 'package:DogApkTools/home/tools/apk/apk_dex2jar.dart';
 import 'package:DogApkTools/home/tools/apk/apk_info.dart';
 import 'package:DogApkTools/home/tools/apk/apk_zipalign.dart';
-import 'package:DogApkTools/home/tools/apk/change/apkchange/apkchange_view.dart';
+import 'package:DogApkTools/home/tools/apk/change/apkchange/apk_change_view.dart';
 import 'package:DogApkTools/home/tools/sign/apk_sign.dart';
 import 'package:DogApkTools/home/tools/sign/apk_sign_check.dart';
 import 'package:DogApkTools/utils/image_utils.dart';

@@ -12,7 +12,7 @@ import 'package:DogApkTools/utils/yml_utils.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
-import 'apkchange_state.dart';
+import 'apk_change_state.dart';
 
 class ApkChangeLogic extends GetxController {
   final ApkChangeState state = ApkChangeState();
@@ -22,7 +22,6 @@ class ApkChangeLogic extends GetxController {
   void onInit() {
     super.onInit();
     getSignConfig();
-    log('每次都初始化');
   }
 
   ///选择APK

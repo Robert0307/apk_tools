@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 final ThemeData appThemeData = ThemeData(
     primaryColor: Colors.blueAccent,
-    accentColor: Colors.blue,
     textTheme: GoogleFonts.arimoTextTheme(),
     appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,

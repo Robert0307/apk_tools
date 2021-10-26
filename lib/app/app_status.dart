@@ -1,13 +1,6 @@
-class AppStatus{
+class AppStatus {
   SettingStatus settingStatus = SettingStatus.checking;
-  int homeIndex=0;
+  int homeIndex = 0;
+}
 
-}
-enum SettingStatus {
-  checking,
-  jdkPathErr,
-  workPathErr,
-  toolsPathErr,
-  servicePathErr,
-  success
-}
+enum SettingStatus { checking, jdkPathErr, toolsPathErr, success }
