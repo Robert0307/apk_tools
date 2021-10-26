@@ -7,7 +7,7 @@ import 'package:DogApkTools/widget/tool_edit_input.dart';
 import 'package:DogApkTools/widget/tool_text_info.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
-import 'package:rounded_loading_button/rounded_loading_button.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class ApkInfo extends StatefulWidget {
   @override
@@ -16,7 +16,6 @@ class ApkInfo extends StatefulWidget {
 
 class _ApkInfoState extends State<ApkInfo> {
   String dApk = '点击选择APK文件';
-  RoundedLoadingButtonController controller = RoundedLoadingButtonController();
   String appPackNameController = '';
   String appVersionCodeController = '';
   String appVersionNameController = '';
@@ -30,6 +29,7 @@ class _ApkInfoState extends State<ApkInfo> {
   @override
   void dispose() {
     super.dispose();
+    EasyLoading.dismiss();
   }
 
   @override
@@ -153,11 +153,5 @@ class _ApkInfoState extends State<ApkInfo> {
     });
 
     return widget;
-  }
-
-  reset() {
-    Future.delayed(Duration(milliseconds: 2500), () {
-      controller.reset();
-    });
   }
 }

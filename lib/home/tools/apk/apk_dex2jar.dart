@@ -24,6 +24,7 @@ class _ApkDexToJarState extends State<ApkDexToJar> {
   @override
   void dispose() {
     super.dispose();
+    EasyLoading.dismiss();
   }
 
   @override

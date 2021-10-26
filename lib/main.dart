@@ -6,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:oktoast/oktoast.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,15 +24,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     doEasyLoading();
 
-    return OKToast(
-        child: GetMaterialApp(
+    return GetMaterialApp(
       home: AppSlash(),
       getPages: AppPages.pages,
       theme: appThemeData,
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.INITIAL,
       builder: EasyLoading.init(),
-    ));
+    );
   }
 
   doEasyLoading() {

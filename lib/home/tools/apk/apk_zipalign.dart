@@ -36,6 +36,12 @@ class _ApkZipalignState extends State<ApkZipalign> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    EasyLoading.dismiss();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AppToolsBack(
       child: Column(

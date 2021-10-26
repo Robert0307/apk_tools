@@ -176,7 +176,6 @@ class ApkChangeLogic extends GetxController {
   ///修改参数配置
   changeParamsConfig(Map<String, String> metaDatas, Map<String, String> providers, {required StatusCallback callback}) {
     state.metaDatas = metaDatas;
-    showLoading();
     AndroidManifestUtils.change(state.outPath, metaDatas: metaDatas);
     outApk(callback: callback);
   }
@@ -193,6 +192,7 @@ class ApkChangeLogic extends GetxController {
 
   ///输出APK
   outApk({required StatusCallback callback}) {
+    showLoading();
     String outApk = state.fromApk.replaceAll(".apk", '_temp.apk');
     ToolsRun.compile(
         fromPath: state.outPath,
@@ -201,6 +201,7 @@ class ApkChangeLogic extends GetxController {
           showToast('回编译成功');
           signAPK(outApk, callback: callback);
         }, onError: (code) {
+          EasyLoading.dismiss();
           callback.onError(code);
         }, onResult: (code, msg) {
           EasyLoading.dismiss();

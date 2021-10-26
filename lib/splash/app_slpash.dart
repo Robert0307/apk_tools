@@ -20,7 +20,7 @@ class _AppSlashState extends State<AppSlash> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     Future.delayed(Duration(milliseconds: 2500), () {
-      // Get.offNamed(Routes.HOME);
+      Get.offNamed(Routes.HOME);
     });
   }
 

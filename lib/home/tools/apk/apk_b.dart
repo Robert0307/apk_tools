@@ -29,6 +29,7 @@ class _ApkToolBState extends State<ApkToolB> {
   @override
   void dispose() {
     super.dispose();
+    EasyLoading.dismiss();
   }
 
   @override
